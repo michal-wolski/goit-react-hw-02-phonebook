@@ -1,27 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const contacts = [
-  {
-    name: 'michal',
-    id: 1234,
-  },
-  {
-    name: 'Elzbieta',
-    id: 342342,
-  },
-];
-
-const ContactList = ({ contacts }) => {
+const ContactList = ({ contacts, filter, handleOnChangeInput }) => {
   return (
     <>
+      <p>Find contacts by name</p>
+      <input
+        type="text"
+        name={filter}
+        value={filter}
+        onChange={handleOnChangeInput}
+      ></input>
       <ul>
         {contacts.map(contacts => (
-          <li key={contacts.id}>{contacts.name}</li>
+          <li key={contacts.id}>
+            {contacts.name}, {contacts.number}
+          </li>
         ))}
       </ul>
     </>
   );
+  console.log(filter);
 };
 
 export default ContactList;
