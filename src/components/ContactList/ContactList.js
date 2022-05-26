@@ -1,26 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const ContactList = ({ contacts, filter, handleOnChangeInput }) => {
+const ContactList = ({ contacts, deleteContact }) => {
   return (
     <>
-      <p>Find contacts by name</p>
-      <input
-        type="text"
-        name={filter}
-        value={filter}
-        onChange={handleOnChangeInput}
-      ></input>
       <ul>
         {contacts.map(contacts => (
-          <li key={contacts.id}>
-            {contacts.name}, {contacts.number}
-          </li>
+          <>
+            <li key={contacts.id}>
+              {contacts.name}: {contacts.number}
+            </li>
+            <button type="button" onClick={() => deleteContact(contacts.id)}>
+              Delete
+            </button>
+          </>
         ))}
       </ul>
     </>
   );
-  console.log(filter);
 };
 
 export default ContactList;
