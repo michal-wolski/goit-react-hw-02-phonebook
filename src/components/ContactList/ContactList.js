@@ -20,4 +20,9 @@ const ContactList = ({ contacts, deleteContact }) => {
   );
 };
 
+ContactList.propTypes = {
+  contact: PropTypes.shape(PropTypes.string.isRequired).isRequired,
+  deleteContact: PropTypes.func.isRequired,
+};
+
 export default ContactList;

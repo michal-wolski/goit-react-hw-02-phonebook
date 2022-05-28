@@ -44,7 +44,11 @@ const CreateContact = ({
 
 CreateContact.propTypes = {
   name: PropTypes.string,
+  nameId: PropTypes.string,
   number: PropTypes.number,
+  numberId: PropTypes.string,
+  handleOnChangeInput: PropTypes.func.isRequired,
+  handleSubmit: PropTypes.func.isRequired,
 };
 
 export default CreateContact;
